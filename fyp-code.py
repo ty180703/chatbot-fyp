@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import requests
 
 app = Flask(__name__)
-import os
+from waitress import serve
 
 
 @app.route('/webhook', methods=['POST'])
@@ -134,6 +134,4 @@ def list_sneakers_response(sneakers, session, info_type):
     }
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-
+     serve(app, host='0.0.0.0', port=8080)
