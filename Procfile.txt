@@ -1,1 +1,1 @@
-web: gunicorn fyp-code:app
+web: gunicorn fyp-code.py:app
